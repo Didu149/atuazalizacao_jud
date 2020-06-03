@@ -8,8 +8,18 @@ def indices():
 
     return indice_atualizacao
         
-        
-
+def juros():
+    meses = int(input('Quantos meses em atraso? '))
+    valor = float(input('Qual o valor do débito? '))
+    contador = 0
+    juros = meses
+    valor_jurado = 0
+    while contador <= meses:
+        jurado = valor * (juros/100)
+        juros -= 1
+        valor_jurado += jurado
+        contador += 1
+    return valor_jurado
 
 
 def main():
@@ -27,6 +37,9 @@ def main():
         valor_atualizar = float(input('Digite o valor a atualizar: '))
         valor_atualizado = (valor_atualizar/tabela_indices[0]) * tabela_indices[-1]
         print(f'O valor atualizado é de R${valor_atualizado}.')
+    if operacao == 2:
+        valor_juros = juros()
+        print(f'O valor dos juros é R${juros}.')
 
 
 main()
